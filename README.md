@@ -1,3 +1,4 @@
+#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 > 정규식을 통한 한글 초성 검색 모듈
 
 
