@@ -79,4 +79,77 @@ describe('초성검색 모듈 테스트 > ', function () {
 
     });
   });
+
+  describe('한글 검색 테스트(처음부터 일치 옵션) > ', function() {
+    it('초성 검색', function() {
+      // given
+      var text = '동해물과 백두산이 마르고 닳도록';
+
+      // when
+      var case1 = text.SearchKor('ㄷㅎㅁㄱ', true);
+      var case2 = text.SearchKor('ㄱ ㅂ', true);
+      var case3 = text.SearchKor('ㅂㄷㅅㅇ', true);
+
+      // then
+      case1.should.be.length(1);
+      (case2 === null).should.be.true;
+      (case3 === null).should.be.true;
+    });
+
+    it('한글', function() {
+      // given
+      var text = '동해물과 백두산이 마르고 닳도록 고';
+
+      // when
+      var case1 = text.SearchKor('해물', true);
+      var case2 = text.SearchKor('두산', true);
+      var case3 = text.SearchKor('고', true);
+      var case4 = text.SearchKor('달', true);
+
+
+      // then
+      (case1 === null).should.be.true;
+      (case2 === null).should.be.true;
+      (case3 === null).should.be.true;
+      (case4 === null).should.be.true;
+
+    });
+
+    it('한글 + 초성', function() {
+      // given
+      var text = '동해물과 백두산이 마르고 닳도록 고';
+
+      // when
+      var case1 = text.SearchKor('해물ㄱ', true);
+      var case2 = text.SearchKor('ㅂ두ㅅㅇ', true);
+      var case3 = text.SearchKor('ㅁㄹ고', true);
+      var case4 = text.SearchKor('달ㄷㄹ', true);
+
+
+      // then
+      (case1 === null).should.be.true;
+      (case2 === null).should.be.true;
+      (case3 === null).should.be.true;
+      (case4 === null).should.be.true;
+
+    });
+
+    it('한글 초성 + 영문', function() {
+      // given
+      var text = '대한민국korea';
+
+      // when
+      var case1 = text.SearchKor('ㅁㄱkorea', true);
+      var case2 = text.SearchKor('민국ko', true);
+      var case3 = text.SearchKor('korea', true);
+      var case4 = text.SearchKor('ㄷㅎㅁㄱk', true);
+
+      // then
+      (case1 === null).should.be.true;
+      (case2 === null).should.be.true;
+      (case3 === null).should.be.true;
+      case4.should.be.length(1);
+
+    });
+  });
 });

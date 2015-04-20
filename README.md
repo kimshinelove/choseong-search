@@ -37,6 +37,13 @@ var case1 = text.SearchKor('ㅁㄱkorea'); // 민국korea
 var case2 = text.SearchKor('민국ko'); // 민구ko
 var case3 = text.SearchKor('korea'); // korea
 var case4 = text.SearchKor('or'); // or
+
+-----
+var text = '동해물과 백두산이 마르고 닳도록';
+
+var case1 = text.SearchKor('ㄷㅎㅁㄱ', true); // 동해물과
+var case2 = text.SearchKor('ㄱ ㅂ', true); // null
+var case3 = text.SearchKor('ㅂㄷㅅㅇ', true); // null
 ```
 
 
