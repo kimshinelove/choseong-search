@@ -17,7 +17,9 @@
     "choseong",
     "javascript"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "should": "^6.0.1"
+  },
   "devDependencies": {
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.11.0",

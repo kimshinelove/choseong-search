@@ -23,6 +23,7 @@ module.exports = function (grunt) {
     },
     mochacli: {
       options: {
+        require: ['should'],
         reporter: 'nyan',
         bail: true
       },

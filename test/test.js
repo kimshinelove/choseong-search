@@ -1,10 +1,82 @@
 'use strict';
-var assert = require('assert');
-var choseongSearch = require('../');
+var should = require('should');
+require('../')(String);
 
-describe('choseong-search node module', function () {
-  it('must have at least one test', function () {
-    choseongSearch();
-    assert(false, 'I was too lazy to write any tests. Shame on me.');
+describe('초성검색 모듈 테스트 > ', function () {
+  it('모듈이 초기화 되면 String Object 에 SearchKor 메소드가 있어야 한다.', function () {
+    should.exist("test".SearchKor);
+  });
+
+  describe('한글 검색 테스트 > ', function() {
+    it('초성 검색', function() {
+      // given
+      var text = '동해물과 백두산이 마르고 닳도록';
+
+      // when
+      var case1 = text.SearchKor('ㄷㅎㅁㄱ');
+      var case2 = text.SearchKor('ㄱ ㅂ');
+      var case3 = text.SearchKor('ㅂㄷㅅㅇ');
+
+      // then
+      case1.should.be.length(1);
+      case2.should.be.length(1);
+      case3.should.be.length(1);
+    });
+
+    it('한글', function() {
+      // given
+      var text = '동해물과 백두산이 마르고 닳도록 고';
+
+      // when
+      var case1 = text.SearchKor('해물');
+      var case2 = text.SearchKor('두산');
+      var case3 = text.SearchKor('고');
+      var case4 = text.SearchKor('달');
+
+
+      // then
+      case1.should.be.length(1);
+      case2.should.be.length(1);
+      case3.should.be.length(2);
+      case4.should.be.length(1);
+
+    });
+
+    it('한글 + 초성', function() {
+      // given
+      var text = '동해물과 백두산이 마르고 닳도록 고';
+
+      // when
+      var case1 = text.SearchKor('해물ㄱ');
+      var case2 = text.SearchKor('ㅂ두ㅅㅇ');
+      var case3 = text.SearchKor('ㅁㄹ고');
+      var case4 = text.SearchKor('달ㄷㄹ');
+
+
+      // then
+      case1.should.be.length(1);
+      case2.should.be.length(1);
+      case3.should.be.length(1);
+      case4.should.be.length(1);
+
+    });
+
+    it('한글 초성 + 영문', function() {
+      // given
+      var text = '대한민국korea';
+
+      // when
+      var case1 = text.SearchKor('ㅁㄱkorea');
+      var case2 = text.SearchKor('민국ko');
+      var case3 = text.SearchKor('korea');
+      var case4 = text.SearchKor('or');
+
+      // then
+      case1.should.be.length(1);
+      case2.should.be.length(1);
+      case3.should.be.length(1);
+      case4.should.be.length(1);
+
+    });
   });
 });
