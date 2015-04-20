@@ -12,7 +12,7 @@ $ npm install --save choseong-search
 ## Usage
 
 ```js
-require('../')(String);
+require('choseong-search')(String);
 
 var text = '동해물과 백두산이 마르고 닳도록';
 
