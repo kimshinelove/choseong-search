@@ -1,0 +1,34 @@
+{
+  "name": "choseong-search",
+  "version": "0.0.0",
+  "description": "정규식을 통한 한글 초성 검색 모듈",
+  "author": {
+    "name": "JiTae, Kim",
+    "email": "kimshinelove@gmail.com"
+  },
+  "repository": "kimshinelove/choseong-search",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "choseong-search",
+    "kor",
+    "choseong",
+    "javascript"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-cli": "^1.12.0",
+    "jshint-stylish": "^1.0.1",
+    "load-grunt-tasks": "^3.1.0",
+    "time-grunt": "^1.1.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  }
+}
