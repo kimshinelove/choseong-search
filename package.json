@@ -1,6 +1,6 @@
 {
   "name": "choseong-search",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "정규식을 통한 한글 초성 검색 모듈",
   "author": {
     "name": "JiTae, Kim",
