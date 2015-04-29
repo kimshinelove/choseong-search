@@ -33,7 +33,6 @@ function SplitKor(str) {
 }
 
 var SearchKor = function (input, isStartWord) {
-  console.time('start search choseong...');
   var wordLength = input.length;
   var regexp = '';
 
@@ -49,8 +48,6 @@ var SearchKor = function (input, isStartWord) {
   }
 
   var result = this.match(new RegExp(regexp, 'g'));
-
-  console.timeEnd('start search choseong...');
 
   return result;
 };
